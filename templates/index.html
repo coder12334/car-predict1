@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+
+
+
+
+
+#sub {
+    width: 120px;
+height: 43px;
+  font-size: 18px;
+  background-color: white;
+  color: black;
+  border: 2px solid #192A56;
+}
+
+
+
+#sub:hover {
+    background-color: darkcyan;
+}
+
+#first {
+    height: 25px;
+    font-size: 20px;
+     border: 2px solid #616C6F;
+         padding-left: 10px;
+
+    
+}
+ 
+body{
+    margin: 0;
+}
+
+
+body {
+  //background: url("car.jpg") no-repeat;
+
+  background: #EAF0F1;
+  padding: 0px;
+
+
+}
+.car {
+    position: absolute;
+    z-index: 1;
+    top: 306px;
+    right:-50px;
+    animation:run 10s infinite linear;
+}
+.car2 {
+    top: 354px;
+    right:50px;
+    -webkit-animation-duration: 15s; /
+    animation-duration: 15s;
+}
+
+.car3 {
+    top: 354px;
+    right:50px;
+    -webkit-animation-duration: 15s; /
+    animation-duration: 15s;
+}
+
+.car-body img{width:200px;}
+
+.tair{
+  position:absolute;
+  }.tair img{width:40px;animation:rotate 3s infinite linear;position:relative;}
+  .tair1{  
+      left:35px;
+      top:106px;
+  }
+  .tair2{  
+      left:128px;
+      top:106px;
+  }
+  @keyframes rotate{
+      100% {transform: rotate(-360deg);}
+  }
+
+  @keyframes run{
+      100% {transform:translateX(-1200px);}
+  }
+
+#left-side {
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+#right-side{
+    float: right;
+    margin-top:-500px;
+    margin-right:250px;
+}
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+
+
+      <form action="{{ url_for('predict')}}" method="post">
+        <h1 style="text-align: center;">Predictive analysis</h1>
+        <div id="left-side">
+            <h3>Year</h3>
+            <input id="first" name="Year" type="number" placeholder="ex.2021">
+
+            <h3>What is the Showroom Price?</h3><br><input id="first" name="Present_Price" required="required" placeholder="In lakhs">
+            <h3>How Many Kilometers Drived?</h3><input id="first" name="Kms_Driven" required="required" >
+            <h3>How much owners previously had the car(0 or 1 or 3) ?</h3><br><input id="first" name="Owner" required="required">
+            <h3>What Is the Fuel type?</h3><br><select name="Fuel_Type_Petrol" id="first" required="required">
+                <option value="Petrol">Petrol</option>
+                <option value="Diesel">Diesel</option>
+                <option value="Diesel">CNG</option>
+            </select>
+        </div>
+
+        <div id="right-side">
+            <h3>Are you A Dealer or Individual</h3><br><select name="Seller_Type_Individual" id="first" required="required">
+                <option value="Dealer">Dealer</option>
+                <option value="Individual">Individual</option>
+            </select>
+            <h3>Transmission type</h3><br><select name="Transmission_Mannual" id="first" required="required">
+                <option value="Mannual">Manual Car</option>
+                <option value="Automatic">Automatic Car</option>
+            </select>
+
+            <br><br><br><button id="sub" onclick="alert('How are you?\n{{ prediction_text }}')" type="submit ">Selling Price</button>
+            <br>
+        </div>
+
+    </form>
+
+</div>
+
+<div class="car car1">
+ <div class="car-body">
+  <img src="https://hasinhayder.github.io/CSS3-Keyframe-Transition/img/car.png" alt="" />
+</div>
+<div class="tair1 tair">
+  <img src="https://hasinhayder.github.io/CSS3-Keyframe-Transition/img/tyre.png" alt="" />
+</div>
+<div class="tair2 tair">
+  <img src="https://hasinhayder.github.io/CSS3-Keyframe-Transition/img/tyre.png" alt="" />
+</div>
+</div>
+
+
+
+<div class="car car2">
+    <div class="car-body">
+      <img src="https://hasinhayder.github.io/CSS3-Keyframe-Transition/img/car3.png" alt="" />
+  </div>
+  <div class="tair1 tair">
+      <img src="https://hasinhayder.github.io/CSS3-Keyframe-Transition/img/tyre.png" alt="" />
+  </div>
+  <div class="tair2 tair">
+      <img src="https://hasinhayder.github.io/CSS3-Keyframe-Transition/img/tyre.png" alt="" />
+  </div>
+</div>
+
+</body>
+
+</html>
